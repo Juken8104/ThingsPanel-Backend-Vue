@@ -22,7 +22,7 @@
                 @click="handleSelect(scope.row)">{{ scope.row.bind ? "已选择" : "选择"}}</el-button>
 
               <el-button type="text" size="mini" v-if="scope.row.status === 'store'"
-                @click="handleSelect(scope.row)">安装</el-button>
+                >安装</el-button>
 
               <el-button type="text" size="mini"  slot="reference" @click="handleView(scope.row)">查看</el-button>
             </template>
@@ -37,7 +37,7 @@
           $t('PLUGIN.MATTER_MODEL_INFO_TAB.BTN') }}</el-link>
         <!-- <el-button type="border-warning" >{{ $t('PLUGIN.MATTER_MODEL_INFO_TAB.BTN') }}</el-button> -->
       </div>
-      <el-input size="medium" slot="reference" readonly v-model="data.plugin_name"></el-input>
+      <el-input size="medium" slot="reference" readonly v-model="data.plugin_name" placeholder="绑定插件"></el-input>
     </el-popover>
     <device-plugin-detail :visible.sync="showDetailDialog" :id="currentItem.id"></device-plugin-detail>
   </div>

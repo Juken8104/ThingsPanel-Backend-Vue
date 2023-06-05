@@ -522,6 +522,12 @@ const dataType = [
     { value: "date", label: "时间", exValue: { dataRange: now + "-" + now, stepLength: "-", unit: "-" }   },
     { value: "object", label: "对象", exValue: { dataRange: "{}-{}", stepLength: "-", unit: "-" }   },
 ]
+const commandDataType = [
+    { value: "number", label: "数字", exValue: { dataRange: "0-999", stepLength: "0.1", unit: "-" }   },
+    { value: "text", label: "字符串", exValue: { dataRange: "-", stepLength: "-", unit: "-" }   },
+    { value: "object", label: "对象", exValue: { dataRange: "{}-{}", stepLength: "-", unit: "-" }   },
+    { value: "list", label: "列表", exValue: { dataRange: "[]-[]", stepLength: "-", unit: "-" }   },
+]
 const required = true, only = true, advanced =true;
 export const tableAttr = {
     properties: [
@@ -534,14 +540,14 @@ export const tableAttr = {
         { field: "description", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE7'), advanced, type: "textarea"},
     ],
     services: [
-        { field: "function", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE8')},
-        { field: "topic", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE9')},
-        { field: "description", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE10'), type: "select"}
+        { field: "commandName", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE8'), validate: {required}},
+        { field: "commandId", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE9'), validate: {required}},
+        { field: "commandParams", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE10'), validate: {required}, type: "multiSelect"}
     ],
     events: [
-        { field: "function", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE8')},
-        { field: "topic", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE9')},
-        { field: "description", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE10')}
+        { field: "eventName", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE12'), validate: {required}},
+        { field: "eventId", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE13'), validate: {required}},
+        { field: "eventParams", label: i18n.t('PLUGIN.MATTER_MODEL_TABLE.LABLE14'), validate: {required}, type: "multiSelect"}
     ]
 }
 
@@ -661,4 +667,4 @@ export const iconList = [
     "el-icon-switch-button", "el-icon-light-rain", "el-icon-lightning", "el-icon-heavy-rain",
     "el-icon-sunrise", "el-icon-sunny", "el-icon-moon", "el-icon-phone-outline"
 ]
-export default { unitOption, dataType, standardTSL, tableAttr }
+export default { unitOption, dataType, commandDataType, standardTSL, tableAttr }

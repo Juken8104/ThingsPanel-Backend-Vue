@@ -247,6 +247,14 @@ export function deleteCustomExchangeAgreement(data){
     })
 }
 
+export function testScript(data){
+    return axios({
+        url: "/tp_script/quiz",
+        method: "post",
+        data
+    })
+}
+
 /**
  * 获取多个设备状态
  * @param data   设备列表
@@ -255,6 +263,58 @@ export function deleteCustomExchangeAgreement(data){
 export function getDeviceListStatus(data) {
     return axios({
         url: "/device/status",
+        method: "post",
+        data,
+    })
+}
+
+/**
+ * 根据设备id获取设备的历史命令
+ * @param {*} data 
+ * @returns 
+ */
+export function getDeviceCommandHistoryList(data) {
+    return axios({
+        url: "/device/command/history/list",
+        method: "post",
+        data,
+    })
+}
+
+/**
+ * 根据设备id获取设备的命令列表
+ * @param {*} data 
+ * @returns 
+ */
+export function getDeviceCommandList(data) {
+    return axios({
+        url: "/device/command/list",
+        method: "post",
+        data,
+    })
+}
+
+/**
+ * 通过设备id发送命令
+ * @param {*} data 
+ * @returns 
+ */
+export function sendCommandByDeviceId(data) {
+    return axios({
+        url: "/device/command/send",
+        method: "post",
+        data,
+    })
+}
+
+/**
+ * 根据设备id获取设备的历史事件
+ * @param {*} data 
+ * @returns 
+ */
+export function getDeviceEventHistoryList(data) {
+    return axios({
+        url: "/device/event/history/list",
         method: "post",
         data,
     })
